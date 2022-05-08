@@ -94,6 +94,32 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         const SizedBox(height: 20,),
+                        Builder(
+                          builder: (context) {
+                            final counterState = context.watch<CounterCubit>().state;
+                            final internetState =  context.watch<InternetCubit>().state;
+
+                            if(internetState is InternetConnected && internetState.connectionType == ConnectionType.Mobile){
+                              return Text("Counter: ${counterState.counterValue.toString()}" "Internet: ${internetState.connectionType.toString()}");
+                            } else if (internetState is InternetConnected && internetState.connectionType == ConnectionType.WiFi){
+                              return Text("Counter: ${counterState.counterValue.toString()}" "Internet: ${internetState.connectionType.toString()}");
+                            } else {
+                              return Text("Counter: ${counterState.counterValue.toString()}" "Internet: Disconnected.");
+                            }
+                          }
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Builder(
+                            builder: (context) {
+                              final counterValue = context.select((CounterCubit counterCubit) => counterCubit.state.counterValue.toInt());
+                              return Text(counterValue.toString());
+                            }
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
