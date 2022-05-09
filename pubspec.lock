@@ -367,12 +367,12 @@ packages:
     source: hosted
     version: "2.0.9"
   path_provider_android:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       name: path_provider_android
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.13"
+    version: "2.0.11"
   path_provider_ios:
     dependency: transitive
     description:
@@ -639,4 +639,4 @@ packages:
     version: "3.1.0"
 sdks:
   dart: ">=2.17.0-85.0.dev <3.0.0"
-  flutter: ">=2.8.1"
+  flutter: ">=2.8.0"
