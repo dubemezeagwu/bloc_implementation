@@ -2,6 +2,7 @@ import 'package:bloc_implementation/bloc/counter_cubit.dart';
 import 'package:bloc_implementation/bloc/internet_cubit.dart';
 import 'package:bloc_implementation/presentation/home_page.dart';
 import 'package:bloc_implementation/presentation/second_page.dart';
+import 'package:bloc_implementation/presentation/settings_page.dart';
 import 'package:bloc_implementation/presentation/third_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -58,6 +59,9 @@ class AppRouter {
                   color: Colors.brown),
             ));
         break;
+      case '/settings':
+        return MaterialPageRoute(
+            builder: (_) => SettingsPage(title: "Settings"));
       default:
         return null;
     }

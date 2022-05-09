@@ -34,6 +34,14 @@ class _HomePageState extends State<HomePage> {
   },
 
   child: Scaffold(
+    appBar: AppBar(
+      title: const Text("Home Screen"),
+      actions: [
+        IconButton(onPressed: (){
+          Navigator.of(context).pushNamed("/settings");
+        }, icon: Icon(Icons.settings))
+      ],
+    ),
       body: SafeArea(
         child: Center(
           child: Column(

@@ -1,5 +1,6 @@
 import 'package:bloc_implementation/bloc/counter_cubit.dart';
 import 'package:bloc_implementation/bloc/internet_cubit.dart';
+import 'package:bloc_implementation/bloc/settings_cubit.dart';
 import 'package:bloc_implementation/presentation/home_page.dart';
 import 'package:bloc_implementation/presentation/routes.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
@@ -38,7 +39,9 @@ class _MyAppState extends State<MyApp> {
         ),
         BlocProvider(
             create: (counterCubitContext) => CounterCubit()
-        )
+        ),
+        BlocProvider(
+            create: (settingsCubitContext) => SettingsCubit())
       ],
       child: MaterialApp(
         onGenerateRoute: widget.appRouter.onGenerateRoute,
