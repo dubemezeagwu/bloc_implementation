@@ -13,7 +13,9 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // Calls the native code to initializes the storage and link it HydratedBloc.
   final storage = await HydratedStorage.build(
-      storageDirectory: await getApplicationDocumentsDirectory());
+      storageDirectory: await getApplicationDocumentsDirectory()
+  );
+
 
   HydratedBlocOverrides.runZoned(
           () => runApp(MyApp(
@@ -51,7 +53,9 @@ class _MyAppState extends State<MyApp> {
             create: (counterCubitContext) => CounterCubit()
         ),
         BlocProvider(
-            create: (settingsCubitContext) => SettingsCubit())
+            create: (settingsCubitContext) => SettingsCubit(),
+          lazy: false,
+        )
       ],
       child: MaterialApp(
         onGenerateRoute: widget.appRouter.onGenerateRoute,
